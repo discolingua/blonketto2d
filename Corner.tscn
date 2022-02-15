@@ -27,7 +27,7 @@ color = Color( 0.0745098, 0.0745098, 0.298039, 1 )
 polygon = PoolVector2Array( 256, 128, 256, 96, 272, 80, 288, 64, 304, 64, 304, 80, 272, 112, 272, 128 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( 192, 176, 192, 96, 208, 64, 240, 32, 272, 16, 352, 16, 352, 0, 240, 0, 176, 64, 176, 176 )
+polygon = PoolVector2Array( 188, 176, 188, 136, 192, 96, 200, 72, 208, 64, 240, 32, 272, 16, 352, 16, 352, 0, 240, 0, 176, 0, 176, 64, 168, 176 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( 256, 128, 256, 96, 288, 64, 304, 64, 304, 80, 272, 112, 272, 128 )
@@ -62,3 +62,12 @@ polygon = PoolVector2Array( 360, 0, 360, 16, 816, 16, 816, 0 )
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
 position = Vector2( 583.5, 9 )
 shape = SubResource( 7 )
+
+[node name="Polygon2D4" type="Polygon2D" parent="."]
+position = Vector2( 0, -5.9798 )
+scale = Vector2( 1, 1.37374 )
+color = Color( 0.0745098, 0.0745098, 0.298039, 1 )
+polygon = PoolVector2Array( 736, 20, 768, 27.6471, 780, 39.2941, 784, 50.9412, 784, 64, 784, 82.7882, 736, 411.999, 800, 412, 800, 96, 800, 16, 728, 16 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 728, 16, 768, 32, 780, 48, 784, 64, 736, 560, 800, 560, 800, 16 )
