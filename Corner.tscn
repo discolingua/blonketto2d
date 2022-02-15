@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=2]
+
+[sub_resource type="CubeMesh" id=3]
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0, 0.0608466, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.116464, 0.0963101, 0.464844, 1, 0.268876, 0.24962, 0.496094, 1 )
+
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 10, 212.25 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 228.5, 9 )
+
+[node name="Corner" type="StaticBody2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2( 0, 48 )
+color = Color( 0.0745098, 0.0745098, 0.298039, 1 )
+polygon = PoolVector2Array( 192, 128, 192, 48, 208, 16, 240, -16, 272, -32, 352, -32, 352, -48, 240, -48, 176, 16, 176, 128 )
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+color = Color( 0.0745098, 0.0745098, 0.298039, 1 )
+polygon = PoolVector2Array( 256, 128, 256, 96, 272, 80, 288, 64, 304, 64, 304, 80, 272, 112, 272, 128 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 192, 176, 192, 96, 208, 64, 240, 32, 272, 16, 352, 16, 352, 0, 240, 0, 176, 64, 176, 176 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 256, 128, 256, 96, 288, 64, 304, 64, 304, 80, 272, 112, 272, 128 )
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2( 183.592, 368.135 )
+rotation = -6.28319
+scale = Vector2( 8.09208, 192.365 )
+mesh = SubResource( 3 )
+texture = SubResource( 5 )
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
+position = Vector2( 264, 342.083 )
+rotation = -6.28319
+scale = Vector2( 8.09208, 214.449 )
+mesh = SubResource( 3 )
+texture = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 180, 368.5 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( 264, 344.25 )
+shape = SubResource( 6 )
+
+[node name="Polygon2D3" type="Polygon2D" parent="."]
+position = Vector2( -8, 0 )
+color = Color( 0.0745098, 0.0745098, 0.298039, 1 )
+polygon = PoolVector2Array( 360, 0, 360, 16, 816, 16, 816, 0 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2( 583.5, 9 )
+shape = SubResource( 7 )
