@@ -14,3 +14,4 @@ func _input(_event):
 		_marble.apply_central_impulse(Vector2(0,-_launchForce))
 		_marble.apply_torque_impulse(rand_range(-TORQUE, TORQUE))
 		print(_launchForce)
+		$AudioStreamPlayer2D.play()

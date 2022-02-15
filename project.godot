@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "GameWorld",
+"language": "GDScript",
+"path": "res://GameWorld.gd"
+}, {
 "base": "MeshInstance2D",
 "class": "Launcher",
 "language": "GDScript",
 "path": "res://Launcher.gd"
 } ]
 _global_script_class_icons={
+"GameWorld": "",
 "Launcher": ""
 }
 

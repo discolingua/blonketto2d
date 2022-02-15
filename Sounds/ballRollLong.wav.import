@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ballRollLong.wav-c9622fdc8c3560e1f7798b3b2c9b9d09.sample"
+
+[deps]
+
+source_file="res://Sounds/ballRollLong.wav"
+dest_files=[ "res://.import/ballRollLong.wav-c9622fdc8c3560e1f7798b3b2c9b9d09.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
