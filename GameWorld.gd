@@ -6,6 +6,9 @@ const FORCE_KICKER : float = 700.0
 var mainScore : int = 0 setget set_mainScore
 
 
+func _ready():
+	set_mainScore(0)
+
 
 func set_mainScore(value:int):
 	mainScore += value
