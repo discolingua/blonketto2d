@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://hud.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Peg.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Sounds/ballRollLong.wav" type="AudioStream" id=7]
 [ext_resource path="res://Sounds/slotchime.wav" type="AudioStream" id=8]
 [ext_resource path="res://Fonts/XanhMono.tres" type="DynamicFont" id=9]
+[ext_resource path="res://Sounds/slotchime3.wav" type="AudioStream" id=10]
+[ext_resource path="res://Sounds/slotchime2.wav" type="AudioStream" id=11]
 
 [sub_resource type="PhysicsMaterial" id=3]
 bounce = 0.35
@@ -27,10 +29,15 @@ extents = Vector2( 232.5, 13 )
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 26, 8.5 )
 
+[sub_resource type="CapsuleShape2D" id=7]
+height = 52.0
+
 [node name="GameWorld" type="Node2D"]
 script = ExtResource( 4 )
 
 [node name="Control" parent="." instance=ExtResource( 1 )]
+margin_right = 800.0
+margin_bottom = 600.0
 
 [node name="MainScoreDisplay" type="RichTextLabel" parent="Control"]
 margin_left = 288.0
@@ -40,6 +47,16 @@ margin_bottom = 608.0
 custom_fonts/normal_font = ExtResource( 9 )
 bbcode_text = "0"
 text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BinCounter" type="RichTextLabel" parent="Control"]
+margin_left = 356.0
+margin_top = 84.0
+margin_right = 706.0
+margin_bottom = 168.0
+text = "0 0 0 0 0 0 0 "
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -205,6 +222,10 @@ script = ExtResource( 5 )
 stream = ExtResource( 7 )
 volume_db = -2.24
 
+[node name="Timer" type="Timer" parent="Launcher"]
+wait_time = 0.495
+one_shot = true
+
 [node name="BottomBins" type="StaticBody2D" parent="."]
 
 [node name="Polygon2D" type="Polygon2D" parent="BottomBins"]
@@ -245,6 +266,10 @@ polygon = PoolVector2Array( 348, 540, 348, 488, 352, 480, 356, 488, 356, 519.012
 position = Vector2( 352, 520 )
 shape = SubResource( 4 )
 
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="BottomBins"]
+position = Vector2( 352, 520 )
+shape = SubResource( 4 )
+
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="BottomBins"]
 position = Vector2( 416, 520 )
 shape = SubResource( 4 )
@@ -268,6 +293,8 @@ shape = SubResource( 4 )
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="BottomBins"]
 position = Vector2( 515.5, 560 )
 shape = SubResource( 5 )
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="BottomBins"]
 
 [node name="RightKicker" type="RigidBody2D" parent="."]
 mode = 3
@@ -313,17 +340,26 @@ stream = ExtResource( 3 )
 position = Vector2( 318, 532.5 )
 shape = SubResource( 6 )
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="BaseSlotBank/BaseSlot1"]
+stream = ExtResource( 3 )
+
 [node name="BaseSlot2" type="Area2D" parent="BaseSlotBank"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BaseSlotBank/BaseSlot2"]
 position = Vector2( 384, 532 )
 shape = SubResource( 6 )
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="BaseSlotBank/BaseSlot2"]
+stream = ExtResource( 10 )
+
 [node name="BaseSlot3" type="Area2D" parent="BaseSlotBank"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BaseSlotBank/BaseSlot3"]
 position = Vector2( 448, 532 )
 shape = SubResource( 6 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="BaseSlotBank/BaseSlot3"]
+stream = ExtResource( 11 )
 
 [node name="BaseSlot4" type="Area2D" parent="BaseSlotBank"]
 
@@ -340,17 +376,33 @@ stream = ExtResource( 8 )
 position = Vector2( 576, 532 )
 shape = SubResource( 6 )
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="BaseSlotBank/BaseSlot5"]
+
 [node name="BaseSlot6" type="Area2D" parent="BaseSlotBank"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BaseSlotBank/BaseSlot6"]
 position = Vector2( 640, 533 )
 shape = SubResource( 6 )
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="BaseSlotBank/BaseSlot6"]
+stream = ExtResource( 10 )
+
 [node name="BaseSlot7" type="Area2D" parent="BaseSlotBank"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BaseSlotBank/BaseSlot7"]
 position = Vector2( 704, 532 )
 shape = SubResource( 6 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="BaseSlotBank/BaseSlot7"]
+stream = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BaseSlotBank"]
+position = Vector2( 280, 516 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BaseSlotBank"]
+position = Vector2( 740, 516 )
+shape = SubResource( 7 )
 
 [connection signal="body_entered" from="RightKicker" to="." method="_on_RightKicker_body_entered"]
 [connection signal="body_entered" from="LeftKicker" to="." method="_on_LeftKicker_body_entered"]
