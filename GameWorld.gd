@@ -6,6 +6,8 @@ const TEST_MODE : bool = false
 const TEST_SHOTS : int = 1000
 const TEST_TIME : float = 0.5
 
+export var ballsRemaining : int = 100 setget set_ballsRemaining
+
 var mainScore : int = 0 setget set_mainScore
 var testShotCounter : int = 0
 var testBin1 : int = 0
@@ -39,6 +41,9 @@ func runTest():
 		testShotCounter += 1
 
 
+func set_ballsRemaining(value:int):
+	ballsRemaining += value
+	$Control/BallsRemainingCounter.text = ("%04d" % ballsRemaining)
 
 func set_mainScore(value:int):
 	mainScore += value

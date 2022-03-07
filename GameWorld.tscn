@@ -41,9 +41,9 @@ margin_bottom = 600.0
 
 [node name="MainScoreDisplay" type="RichTextLabel" parent="Control"]
 margin_left = 288.0
-margin_top = 548.0
+margin_top = 556.0
 margin_right = 748.0
-margin_bottom = 608.0
+margin_bottom = 596.0
 custom_fonts/normal_font = ExtResource( 9 )
 bbcode_text = "0"
 text = "0"
@@ -57,6 +57,18 @@ margin_top = 84.0
 margin_right = 706.0
 margin_bottom = 168.0
 text = "0 0 0 0 0 0 0 "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BallsRemainingCounter" type="Label" parent="Control"]
+margin_left = 32.0
+margin_top = 556.0
+margin_right = 165.0
+margin_bottom = 602.0
+custom_fonts/font = ExtResource( 9 )
+text = "0000000"
+align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
